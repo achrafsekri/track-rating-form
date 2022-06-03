@@ -1,5 +1,5 @@
 import { React, useContext, useState } from "react";
-import {Survey} from "../context/survey";
+import { Survey } from "../context/survey";
 import { Validate } from "../context/Validate";
 const Personal = () => {
   const [name, setname] = useState("");
@@ -20,12 +20,12 @@ const Personal = () => {
     setemail(e.target.value);
   };
 
-  if(validate){
-    let survey=info
-    survey.name=name
-    survey.email=email
-    survey.country=country
-    setinfo(survey)
+  if (validate) {
+    let survey = info;
+    survey.name = name;
+    survey.email = email;
+    survey.country = country;
+    setinfo(survey);
   }
 
   return (
@@ -39,7 +39,11 @@ const Personal = () => {
             Name
           </label>
           <input
-            className={(validate&&name=='')?"block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border focus:ring-red-400  rounded appearance-none focus:outline-none focus:bg-white":"block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border  rounded appearance-none focus:outline-none focus:bg-white"}
+            className={
+              validate && name == ""
+                ? "block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border focus:ring-red-400  rounded appearance-none focus:outline-none focus:bg-white"
+                : "block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border  rounded appearance-none focus:outline-none focus:bg-white"
+            }
             id="name"
             type="text"
             placeholder="Achraf"
@@ -55,7 +59,11 @@ const Personal = () => {
             Country
           </label>
           <input
-            className={(validate&&country=='')?"block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border focus:ring-red-400 rounded appearance-none focus:outline-none focus:bg-white":"block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border  rounded appearance-none focus:outline-none focus:bg-white"}
+            className={
+              validate && country == ""
+                ? "block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border focus:ring-red-400 rounded appearance-none focus:outline-none focus:bg-white"
+                : "block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border  rounded appearance-none focus:outline-none focus:bg-white"
+            }
             id="country"
             type="text"
             placeholder="Tunisia"
@@ -73,7 +81,11 @@ const Personal = () => {
             E-mail
           </label>
           <input
-            className={(validate&&email=='')?"block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border focus:ring-red-400  rounded appearance-none focus:outline-none focus:bg-white":"block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border  rounded appearance-none focus:outline-none focus:bg-white"}
+            className={
+              validate && email == ""
+                ? "block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border focus:ring-red-400  rounded appearance-none focus:outline-none focus:bg-white"
+                : "block w-full px-4 py-3 mb-3 leading-tight text-gray-900 bg-gray-200 border  rounded appearance-none focus:outline-none focus:bg-white"
+            }
             id="email"
             type="email"
             placeholder="hey@something.bye"

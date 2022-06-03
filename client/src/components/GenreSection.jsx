@@ -1,26 +1,29 @@
-import { React, useState ,useContext} from "react";
+import { React, useState, useContext } from "react";
 import "../styles/audio.css";
-import {Survey} from "../context/survey";
+import { Survey } from "../context/survey";
 import { Validate } from "../context/Validate";
 import Track from "./track";
 
 export const GenreSection = (props) => {
-  const [genre, setgenre] = useState({ genre:props.title,comment: "", ratings: [] });
+  const [genre, setgenre] = useState({
+    genre: props.title,
+    comment: "",
+    ratings: [],
+  });
   const [tracks, settracks] = useState(props.tracks);
-  const [comment, setcomment] = useState('');
   const { info, setinfo } = useContext(Survey);
   const { validate, setvalidate } = useContext(Validate);
 
-  const handlecomment=(e)=>{
-    const ne=genre
-    ne.comment=e.target.value
-    setgenre(ne)
-  }
- 
-  if(validate){
-    let survey=info
-    survey.ratings.push(genre)
-    setinfo(survey)
+  const handlecomment = (e) => {
+    const ne = genre;
+    ne.comment = e.target.value;
+    setgenre(ne);
+  };
+
+  if (validate) {
+    let survey = info;
+    survey.ratings.push(genre);
+    setinfo(survey);
   }
   return (
     <fieldset className="min-w-full p-5 mb-10 rounded-lg bg-wkgreen">

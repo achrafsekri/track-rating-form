@@ -8,7 +8,7 @@ import axios from "axios";
 export const Form = () => {
   const { info, setinfo } = useContext(Survey);
   const { validate, setvalidate } = useContext(Validate);
-  const [sent,setsent]=useState('notsent')
+  const [sent, setsent] = useState("notsent");
   const handlesubmit = (event) => {
     event.preventDefault();
 
@@ -20,10 +20,12 @@ export const Form = () => {
         ratings: info.ratings,
       })
       .then(function (response) {
-        if(response.data=="survey saved"){setsent('sent')}
+        if (response.data == "survey saved") {
+          setsent("sent");
+        }
       })
       .catch(function (error) {
-        setsent('error')
+        setsent("error");
       });
   };
   return (
@@ -50,16 +52,25 @@ export const Form = () => {
             tracks={genre.tracks}
           />
         ))}
-      <div className="flex items-center gap-10">
-        <input
-          onClick={(e) => {
-            setvalidate(true);
-            console.log(info);
-          }}
-          type="submit"
-          className="h-12 px-4 py-2 font-semibold bg-transparent border rounded w-28 hover:bg-button text-txt hover:text-white border-txt hover:border-transparent hover:cursor-pointer"
-        />
-        {sent=='sent'?<p className="mt-5 mb-5 italic text-l ">the survey is sent thank you for your participation :)</p>:sent=='error'&&<p className="mb-10 italic text-red-500 text-l">there was an error sending the form please retry</p>}
+        <div className="flex items-center gap-10">
+          <input
+            onClick={(e) => {
+              setvalidate(true);
+            }}
+            type="submit"
+            className="h-12 px-4 py-2 font-semibold bg-transparent border rounded w-28 hover:bg-button text-txt hover:text-white border-txt hover:border-transparent hover:cursor-pointer"
+          />
+          {sent == "sent" ? (
+            <p className="mt-5 mb-5 italic text-l ">
+              the survey is sent thank you for your participation :)
+            </p>
+          ) : (
+            sent == "error" && (
+              <p className="mb-10 italic text-red-500 text-l">
+                there was an error sending the form please retry
+              </p>
+            )
+          )}
         </div>
       </form>
     </div>
